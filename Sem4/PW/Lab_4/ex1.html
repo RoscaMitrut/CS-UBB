@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <style>
+        #firstList,
+        #secondList {
+            font-size: 40px;
+        }
+    </style>
+</head>
+
+<body>
+    <select id="firstList" multiple>
+        <option value disabled selected>First List</option>
+        <option value="1.1">Cirese</option>
+        <option value="1.2">Mere</option>
+        <option value="1.3">Pere</option>
+        <option value="1.4">Rosii</option>
+    </select>
+    <select id="secondList" multiple>
+        <option value disabled selected>Second List</option>
+        <option value="2.1">Morcovi</option>
+        <option value="2.2">Cartofi</option>
+        <option value="2.3">Castraveti</option>
+        <option value="2.4">Dovleci</option>
+    </select>
+</body>
+<script>
+    moveSelectedFunction = (fromList, toList) => {
+        return (e) => {
+            const selItemIdx = fromList.selectedIndex;
+            if (selItemIdx === -1 || selItemIdx === 0) {
+                return;
+            }
+            toList.appendChild(fromList[selItemIdx]);
+            fromList.selectedIndex = 0;
+        }
+    }
+    const firstList = document.getElementById("firstList");
+    const secondList = document.getElementById("secondList");
+    firstList.ondblclick = moveSelectedFunction(firstList, secondList);
+    secondList.ondblclick = moveSelectedFunction(secondList, firstList);
+
+</script>
+
+</html>

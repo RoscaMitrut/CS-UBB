@@ -1,0 +1,23 @@
+div.parinte {
+    width: 400px;
+    border-color: black;
+    border-style: solid;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+div.copil1 {
+    width: 200px;
+    text-align: center;
+}
+
+img {
+    max-width: 200px;
+    display: block;
+
+}
+
+div.copil2 {
+    width: 200px;
+}

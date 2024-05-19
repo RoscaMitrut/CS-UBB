@@ -1,0 +1,37 @@
+html, body {
+    height: 100%;
+    width: 100%;
+}
+
+* {
+    margin: 0;
+}
+.meniu {
+    background-color: yellow;
+    list-style-type: none;
+    border: 1px solid black;
+    height: 25px;
+}
+.meniu li {
+    display: inline-block;
+    border-right: 1px solid black;
+}
+.header {
+    background-color: red;
+    height: 100px;
+}
+
+.main-div {
+    background-color: green;
+    min-height: calc(100% - 185px);
+}
+
+.footer {
+    background-color: pink;
+    margin-top: auto;
+    height: 60px;
+}
+
+.header, .footer, .main-div, .meniu {
+    text-align: center;
+}

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <style>
+        #firstList,
+        #secondList {
+            font-size: 40px;
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+
+<body>
+    <select id="firstList" multiple>
+        <option value disabled selected>First List</option>
+        <option value="1.1">Cirese</option>
+        <option value="1.2">Mere</option>
+        <option value="1.3">Pere</option>
+        <option value="1.4">Rosii</option>
+    </select>
+    <select id="secondList" multiple>
+        <option value disabled selected>Second List</option>
+        <option value="2.1">Morcovi</option>
+        <option value="2.2">Cartofi</option>
+        <option value="2.3">Castraveti</option>
+        <option value="2.4">Dovleci</option>
+    </select>
+
+    <script>
+        $(document).ready(function () {
+            var moveSelectedFunction = function (fromList, toList) {
+                return function () {
+                    var selectedOption = $(fromList).find("option:selected");
+                    if (selectedOption.length === 0 || selectedOption.val() === null) {
+                        return;
+                    }
+                    $(toList).append(selectedOption);
+                    $(fromList).val(null);
+                };
+            };
+            var firstList = $("#firstList");
+            var secondList = $("#secondList");
+            firstList.on("dblclick", moveSelectedFunction(firstList, secondList));
+            secondList.on("dblclick", moveSelectedFunction(secondList, firstList));
+        });
+    </script>
+
+</body>
+
+</html>

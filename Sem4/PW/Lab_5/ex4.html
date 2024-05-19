@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <style>
+        td,
+        th {
+            border: 1px solid black;
+            text-align: center;
+            font-size: 20px;
+            padding: 12px;
+            cursor: pointer; /* Add cursor pointer for clickable effect */
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+
+<body>
+    <table id="horizontal-table">
+        <tr>
+            <th>Animal</th>
+            <td>Caine</td>
+            <td>Elefant</td>
+            <td>Gazela</td>
+            <td>Flamingo</td>
+            <td>Salamandra</td>
+        </tr>
+        <tr>
+            <th>Medie de viata (ani)</th>
+            <td>12</td>
+            <td>65</td>
+            <td>12</td>
+            <td>25</td>
+            <td>30</td>
+        </tr>
+        <tr>
+            <th>Viteza maxima (km/hr)</th>
+            <td>72</td>
+            <td>40</td>
+            <td>97</td>
+            <td>56</td>
+            <td>24</td>
+        </tr>
+        <tr>
+            <th>Greutate medie (kg)</th>
+            <td>35</td>
+            <td>5000</td>
+            <td>35</td>
+            <td>3</td>
+            <td>0.200</td>
+        </tr>
+    </table>
+    <br /><br />
+    <table id="vertical-table">
+        <tr>
+            <th>Animal</th>
+            <th>Medie de viata (ani)</th>
+            <th>Viteza maxima (km/hr)</th>
+            <th>Greutate medie (kg)</th>
+        </tr>
+        <tr>
+            <td>Caine</td>
+            <td>12</td>
+            <td>72</td>
+            <td>35</td>
+        </tr>
+        <tr>
+            <td>Elefant</td>
+            <td>65</td>
+            <td>40</td>
+            <td>5000</td>
+        </tr>
+        <tr>
+            <td>Gazela</td>
+            <td>12</td>
+            <td>97</td>
+            <td>35</td>
+        </tr>
+        <tr>
+            <td>Flamingo</td>
+            <td>25</td>
+            <td>56</td>
+            <td>3</td>
+        </tr>
+        <tr>
+            <td>Salamandra</td>
+            <td>30</td>
+            <td>24</td>
+            <td>0.200</td>
+        </tr>
+    </table>
+</body>
+
+<script>
+    const sortFn = (table, toSort, swapFn) => {
+    let numericalCriteria = true, n = toSort.length;
+    if (isNaN(toSort[0])) {
+        numericalCriteria = false;
+    }
+    let sorted = false;
+    while (!sorted) {
+        sorted = true;
+        for (let i = 0; i < n - 1; i++) {
+            if (numericalCriteria) {
+                if (parseInt(toSort[i]) > parseInt(toSort[i + 1])) {
+                    sorted = false;
+                    swapFn(table, i, i + 1);
+                    [toSort[i], toSort[i + 1]] = [toSort[i + 1], toSort[i]];
+                }
+            }
+            else {
+                if (toSort[i] > toSort[i + 1]) {
+                    sorted = false;
+                    swapFn(table, i, i + 1);
+                    [toSort[i], toSort[i + 1]] = [toSort[i + 1], toSort[i]];
+                }
+            }
+        }
+        n--;
+    }
+    if (n === toSort.length - 1) { // in case it's already sorted, we reverse it
+        n = toSort.length;
+        for (let i = 0; i < n / 2; i++) {
+            [toSort[i], toSort[n - i - 1]] = [toSort[n - i -1], toSort[i]];
+            swapFn(table, i, n - i - 1);
+        }
+    }
+}
+
+const swapColumns = (table, i, j) => {
+    $("tr", table).each(function() {
+        let aux = $(this).children().eq(i + 1).html();
+        $(this).children().eq(i + 1).html($(this).children().eq(j + 1).html());
+        $(this).children().eq(j + 1).html(aux);
+    })
+}
+const sortColumn = (header) => {
+    const row = header.parent();
+    const table = row.parent().parent();
+    let toSort = [];
+    let n = row.children().length;
+    for (let i = 1; i < n; i++) {
+        toSort.push(row.children().eq(i).html());
+    }
+    sortFn(table, toSort, swapColumns);
+}
+
+const swapRows = (table, i, j) => {
+    let aux = $(table).find('tr').eq(i + 1).html();
+    $(table).find('tr').eq(i + 1).html($(table).find('tr').eq(j + 1).html());
+    $(table).find('tr').eq(j + 1).html(aux);
+}
+
+const sortRow = (header) => {
+    const row = header.parent();
+    const table = row.parent().parent();
+    let indexHeader = -1;
+
+    table.find("tr:first th").each((i, el) => {
+        if ($(el).html() === header.html()) {
+            indexHeader = i;
+        }
+    });
+
+    let toSort = [];
+    $(table)
+        .find("tr:not(:first)")
+        .each((i, row) => {
+            toSort.push($(row).find(`td:eq(${indexHeader})`).html());
+        });
+    sortFn(table, toSort, swapRows);
+}
+
+$("#horizontal-table").find("th").click(function() {
+    sortColumn($(this));
+});
+$("#vertical-table").find("tr:first th").click(function() {
+    sortRow($(this));
+})
+</script>
+
+</html>

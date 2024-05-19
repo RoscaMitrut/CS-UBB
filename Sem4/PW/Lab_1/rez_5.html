@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+        <title>Hi!</title>
+    </head>
+
+    <body>
+        <h1><b>Job Application Form</b></h1>
+        <ul>
+            <li>Advantages of working for us:</li>
+            <li><ol start="98">
+                    <li>...</li>
+                    <li>Loads of free time</li>
+                    <li>High salary! $$$</li>
+                </ol></li>
+            <li>Disadvantages:</li>
+            <li><ol type="A">
+                    <li>There are none! :D</li>
+                </ol></li>
+        </ul>
+        <form action="#">
+            <table>
+                <tr>
+                    <td colspan="2">
+                        <fieldset>
+                            <legend>Your Name:</legend>
+                            <label for="firstName">First name:</label>
+                            <input type="text" id="firstName"
+                                name="firstName"><br>
+                            <label for="lastName">Last name:</label>
+                            <input type="text" id="lastName" name="lastName">
+                        </fieldset>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Email: <input type="text" name="email"></td>
+                    <td>Phone Number: <input type="text"
+                            name="phoneNumber"></td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <table>
+                            <tr>
+                                <td>
+                                    <label>Position:</label>
+                                </td>
+                                <td>
+                                    <select multiple size="3" name="positions">
+                                        <option value="softwareEngineer"
+                                            selected>Software
+                                            Engineer</option>
+                                        <option value="dataScientist">Data
+                                            Scientist</option>
+                                        <option value="webDeveloper">Web
+                                            Developer</option>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="2">
+                                    <label><b>(Different positions have
+                                            different requirements)</b></label>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label>Interview Date Availability:</label></td>
+                    <td><input type="text" name="interviewDate"></td>
+                </tr>
+                <tr>
+                    <td>Current employee status:</td>
+                    <td><input type="radio" name="employeeStatus"
+                            value="student" disabled>Student<br>
+                        <input type="radio" name="employeeStatus"
+                            value="employed">Employed<br>
+                        <input type="radio" name="employeeStatus"
+                            value="unemployed">Unemployed<br></td>
+                </tr>
+                <tr>
+                    <td>Hobbies:</td>
+                    <td>
+                        <table>
+                            <tr>
+                                <td><input type="checkbox" name="music">
+                                    Music</td>
+                            </tr>
+                            <tr>
+                                <td><input type="checkbox" name="travel">
+                                    Travel</td>
+                            </tr>
+                            <tr>
+                                <td><input type="checkbox" name="other" checked>
+                                    Other</td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Resume link:</td>
+                    <td><input type="text" name="resumeLink"></td>
+                </tr>
+                <tr>
+                    <td>References: (optional)</td>
+                    <td>
+                        First Name: <input type="text"
+                            name="referenceFirstName"><br>
+                        Last Name: <input type="text"
+                            name="referenceLastName"><br>
+                        Reference email: <input type="text"
+                            name="referenceEmail"><br>
+                    </td>
+                </tr>
+            </table>
+            <br>
+            Please don't:
+            <ul>
+                <li>Lie in your resume</li>
+                <li>Spam us</li>
+            </ul>
+            <textarea name="message" rows="10"
+                cols="30">Details we should know about yourself.</textarea> <br>
+            <textarea name="complaints" rows="2" cols="20"
+                readonly>Complaints about us</textarea><br>
+            <a href="https://www.google.com" target="_blank">ToS</a><br>
+            <input type="submit" value="Submit!">
+            <input type="reset">
+        </form>
+        <img src="deal.png" alt="Deal" height="400">
+    </body>
+
+</html>

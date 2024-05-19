@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <style>
+        .form-style {
+            display: flex;
+            flex-direction: column;
+            width: 400px
+        }
+
+        .ok-input {
+            border: 1px solid black;
+        }
+
+        .invalid-input {
+            border: 1px solid red;
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+
+<body>
+    <form id="myForm" action="javascript:void(0);">
+        <fieldset class="form-style">
+            <legend>Formular</legend>
+
+            <label for="nameInput">Name:</label>
+            <input id="nameInput" type="text" class="ok-input"/><br>
+
+            <label for="birthInput">DoB:</label>
+            <input id="birthInput" type="date" class="ok-input"/><br>
+
+            <label for="ageInput">Age:</label>
+            <input id="ageInput" type="number" class="ok-input"/><br>
+
+            <label for="mailInput">Mail:</label>
+            <input id="mailInput" type="email" class="ok-input"/><br>
+
+            <input type="submit"/>
+        </fieldset>
+    </form>
+</body>
+
+<script>
+    $(document).ready(function () {
+        const setOkStyle = function (input) {
+            $(input).removeClass('invalid-input').addClass('ok-input');
+        };
+
+        const validateName = function (name) {
+            if (name.length < 3) {
+                return 'The length of the name should be bigger than 3 characters!';
+            } else if (name.length > 52) {
+                return 'The length of the name should be less than 52 characters!';
+            }
+            return '';
+        };
+
+        const validateBirthDate = function (date) {
+            if (date === '') {
+                return 'The birth date should not be empty!';
+            }
+            return '';
+        };
+
+        const validateAge = function (age) {
+            if (age === '') {
+                return 'The age should not be empty!';
+            }
+            if (isNaN(age)) {
+                return 'The age should be a number!';
+            }
+            return '';
+        };
+
+        const validateMail = function (mail) {
+            const regex = /\S+@\S+\.\S+/;
+            if (mail === '') {
+                return 'The mail address should not be empty!';
+            }
+            if (!mail.match(regex)) {
+                return 'The mail address is invalid!';
+            }
+            return '';
+        };
+
+        const handleFormButtonPressed = function () {
+            let errors = '';
+            const inputValidators = {
+                name: {
+                    input: $('#nameInput'),
+                    validator: validateName
+                },
+                birth: {
+                    input: $('#birthInput'),
+                    validator: validateBirthDate
+                },
+                age: {
+                    input: $('#ageInput'),
+                    validator: validateAge
+                },
+                mail: {
+                    input: $('#mailInput'),
+                    validator: validateMail
+                }
+            };
+
+            for (const key in inputValidators) {
+                const inputValidator = inputValidators[key];
+                const error = inputValidator.validator(inputValidator.input.val());
+                if (error !== '') {
+                    errors += error + '\n';
+                    inputValidator.input.removeClass('ok-input').addClass('invalid-input');
+                }
+            }
+
+            if (errors !== '') {
+                errors = errors.slice(0, -1);
+                alert(errors);
+            } else {
+                alert('Input is valid!');
+            }
+        };
+
+        $('#myForm').submit(function (e) {
+            e.preventDefault(); // Prevent the form from submitting normally
+            handleFormButtonPressed();
+        });
+
+        // Reset styles on focus
+        $('.ok-input').focus(function () {
+            setOkStyle(this);
+        });
+    });
+</script>
+
+</html>

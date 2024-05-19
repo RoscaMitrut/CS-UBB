@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <style>
+        .card {
+            border: 3px black solid;
+            width: 100px;
+            height: 100px;
+            text-align: center;
+            font-size: 50px;
+            font-weight: bold;
+            color: black;
+        }
+
+        img {
+            width: 100px;
+            height: 100px;
+        }
+
+        .covered {
+            opacity: 0;
+        }
+
+        .uncovered {
+            opacity: 1;
+        }
+
+        .wrong {
+            border-color: red;
+        }
+
+        .right {
+            border-color: green;
+        }
+    </style>
+</head>
+
+<body>
+    <table id="game-board">
+        <tr>
+            <td class="card" onclick="flipCard(this)">
+                <p class="covered">1</p>
+            </td>
+            <td class="card" onclick="flipCard(this)">
+                <p class="covered">2</p>
+            </td>
+            <td class="card" onclick="flipCard(this)">
+                <p class="covered">3</p>
+            </td>
+            <td class="card" onclick="flipCard(this)">
+                <p class="covered">4</p>
+            </td>
+        </tr>
+        <tr>
+            <td class="card" onclick="flipCard(this)">
+                <p class="covered">3</p>
+            </td>
+            <td class="card" onclick="flipCard(this)">
+                <p class="covered">2</p>
+            </td>
+            <td class="card" onclick="flipCard(this)">
+                <p class="covered">1</p>
+            </td>
+            <td class="card" onclick="flipCard(this)">
+                <p class="covered">4</p>
+            </td>
+        </tr>
+    </table>
+    <br /><br />
+    <table id="game-board-images">
+        <tr>
+            <td class="card" onclick="flipCard(this)">
+                <div class="covered"><img src="img1.png" alt="img1"></div>
+            </td>
+            <td class="card" onclick="flipCard(this)">
+                <div class="covered"><img src="img2.png" alt="img2" /></div>
+            </td>
+            <td class="card" onclick="flipCard(this)">
+                <div class="covered"><img src="img3.jpg" alt="img3" /></div>
+            </td>
+            <td class="card" onclick="flipCard(this)">
+                <div class="covered"><img src="img4.jpg" alt="img4" /></div>
+            </td>
+        </tr>
+        <tr>
+            <td class="card" onclick="flipCard(this)">
+                <div class="covered"><img src="img3.jpg" alt="img3" /></div>
+            </td>
+            <td class="card" onclick="flipCard(this)">
+                <div class="covered"><img src="img2.png" alt="img2" /></div>
+            </td>
+            <td class="card" onclick="flipCard(this)">
+                <div class="covered"><img src="img1.png" alt="img1" /></div>
+            </td>
+            <td class="card" onclick="flipCard(this)">
+                <div class="covered"><img src="img4.jpg" alt="img4" /></div>
+            </td>
+        </tr>
+    </table>
+</body>
+<script>
+    let boardLocked = false;
+    let firstCard = null, secondCard = null;
+    let pairsLeft = 4;
+    const flipCard = (card) => {
+        if (boardLocked || card === firstCard) return;
+        card.children[0].className = 'uncovered';
+        if (firstCard === null) {
+            firstCard = card;
+            return;
+        }
+        secondCard = card;
+        checkMatch();
+    }
+    const checkMatch = () => {
+        console.log(firstCard.children[0], secondCard.children[0]);
+        firstCard.children[0].innerHTML === secondCard.children[0].innerHTML ?
+            disableCards() : unflipCards();
+    }
+    const disableCards = () => {
+        firstCard.classList.add('right');
+        secondCard.classList.add('right');
+        firstCard.onclick = null;
+        secondCard.onclick = null;
+        resetBoard();
+        pairsLeft--;
+        if (pairsLeft === 0) {
+            setTimeout(() => {
+                alert('You won!');
+            }, 200)
+        }
+    }
+    const unflipCards = () => {
+        boardLocked = true;
+        firstCard.classList.add('wrong');
+        secondCard.classList.add('wrong');
+        setTimeout(() => {
+            firstCard.children[0].className = 'covered';
+            secondCard.children[0].className = 'covered';
+            firstCard.classList.remove('wrong');
+            secondCard.classList.remove('wrong');
+            resetBoard();
+        }, 2000);
+    }
+    const resetBoard = () => {
+        boardLocked = false;
+        firstCard = null;
+        secondCard = null;
+    }
+</script>
+
+</html>

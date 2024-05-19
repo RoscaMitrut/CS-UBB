@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <style>
+        .card {
+            border: 3px black solid;
+            width: 100px;
+            height: 100px;
+            text-align: center;
+            font-size: 50px;
+            font-weight: bold;
+            color: black;
+        }
+
+        img {
+            width: 100px;
+            height: 100px;
+        }
+
+        .covered {
+            opacity: 0;
+        }
+
+        .uncovered {
+            opacity: 1;
+        }
+
+        .wrong {
+            border-color: red;
+        }
+
+        .right {
+            border-color: green;
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+
+<body>
+    <table id="game-board">
+        <tr>
+            <td class="card">
+                <p class="covered">1</p>
+            </td>
+            <td class="card">
+                <p class="covered">2</p>
+            </td>
+            <td class="card">
+                <p class="covered">3</p>
+            </td>
+            <td class="card">
+                <p class="covered">4</p>
+            </td>
+        </tr>
+        <tr>
+            <td class="card">
+                <p class="covered">3</p>
+            </td>
+            <td class="card">
+                <p class="covered">2</p>
+            </td>
+            <td class="card">
+                <p class="covered">1</p>
+            </td>
+            <td class="card">
+                <p class="covered">4</p>
+            </td>
+        </tr>
+    </table>
+    <br /><br />
+    <table id="game-board-images">
+        <tr>
+            <td class="card">
+                <div class="covered"><img src="img1.png" alt="img1"></div>
+            </td>
+            <td class="card">
+                <div class="covered"><img src="img2.png" alt="img2" /></div>
+            </td>
+            <td class="card">
+                <div class="covered"><img src="img3.jpg" alt="img3" /></div>
+            </td>
+            <td class="card">
+                <div class="covered"><img src="img4.jpg" alt="img4" /></div>
+            </td>
+        </tr>
+        <tr>
+            <td class="card">
+                <div class="covered"><img src="img3.jpg" alt="img3" /></div>
+            </td>
+            <td class="card">
+                <div class="covered"><img src="img2.png" alt="img2" /></div>
+            </td>
+            <td class="card">
+                <div class="covered"><img src="img1.png" alt="img1" /></div>
+            </td>
+            <td class="card">
+                <div class="covered"><img src="img4.jpg" alt="img4" /></div>
+            </td>
+        </tr>
+    </table>
+</body>
+
+<script>
+    $(document).ready(function () {
+        let boardLocked = false;
+        let firstCard = null, secondCard = null;
+        let pairsLeft = 4;
+
+        $(".card").click(function () {
+            if (boardLocked || $(this).hasClass("uncovered")) return;
+            $(this).find(".covered").removeClass("covered").addClass("uncovered");
+            if (firstCard === null) {
+                firstCard = $(this);
+                return;
+            }
+            secondCard = $(this);
+            checkMatch();
+        });
+
+        function checkMatch() {
+            firstContent = firstCard.find(".uncovered").text();
+            secondContent = secondCard.find(".uncovered").text();
+            firstContent === secondContent ? disableCards() : unflipCards();
+        }
+
+        function disableCards() {
+            firstCard.addClass("right");
+            secondCard.addClass("right");
+            firstCard.off("click");
+            secondCard.off("click");
+            resetBoard();
+            pairsLeft--;
+            if (pairsLeft === 0) {
+                setTimeout(function () {
+                    alert("You won!");
+                }, 200);
+            }
+        }
+
+        function unflipCards() {
+            boardLocked = true;
+            firstCard.addClass("wrong");
+            secondCard.addClass("wrong");
+            setTimeout(function () {
+                firstCard.find(".uncovered").addClass("covered").removeClass("uncovered");
+                secondCard.find(".uncovered").addClass("covered").removeClass("uncovered");
+                firstCard.removeClass("wrong");
+                secondCard.removeClass("wrong");
+                resetBoard();
+            }, 2000);
+        }
+
+        function resetBoard() {
+            boardLocked = false;
+            firstCard = null;
+            secondCard = null;
+        }
+    });
+</script>
+
+</html>

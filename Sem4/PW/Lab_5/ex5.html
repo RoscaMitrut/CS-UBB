@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <style>
+        ol {
+            list-style: none;
+        }
+
+        fieldset {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        #image-list li:not(:first-child) {
+            display: none;
+            opacity: 0;
+        }
+
+        #image-list img {
+            border: 2px black solid;
+        }
+
+        #image-list a {
+            display: block;
+            padding: 90px;
+            transform: translateY(-175px);
+            background-color: rgba(0, 0, 0, 0.0);
+        }
+
+        button {
+            font-size: 50px;
+        }
+
+        #previous-button {
+            transform: translate(-300px, -50px);
+        }
+
+        #next-button {
+            transform: translate(300px, -50px);
+        }
+    </style>
+</head>
+
+<body>
+    <fieldset>
+        <legend> </legend>
+        <ol id="image-list">
+            <li><img src="image1.jpg" alt="image1"><a href="https://mail.google.com"></a></li>
+            <li><img src="image2.png" alt="image2"><a href="https://mail.yahoo.com"></a></li>
+            <li><img src="image3.png" alt="image3"><a href="https://www.microsoft.com/ro-ro/microsoft-365/outlook/email-and-calendar-software-microsoft-outlook"></a></li>
+        </ol>
+        <div>
+            <button id="previous-button">-</button>
+            <button id="next-button">+</button>
+        </div>
+    </fieldset>
+</body>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function(){
+        let currentImageIndex = 0;
+        const delay = 3000;
+
+        const imagesList = $('#image-list');
+        const images = imagesList.find('li');
+
+        const showNextImage = (skipPages) => {
+            if (typeof skipPages !== 'number') {
+                skipPages = 1;
+            }
+
+            $(images[currentImageIndex]).css({'opacity': '0', 'display': 'none'});
+            currentImageIndex = (currentImageIndex + skipPages) % images.length;
+            $(images[currentImageIndex]).css({'opacity': '1', 'display': 'block'});
+        }
+
+        let intervalId = setInterval(showNextImage, delay);
+
+        $('#next-button').click(function(){
+            showNextImage();
+            clearInterval(intervalId);
+            intervalId = setInterval(showNextImage, delay);
+        });
+
+        $('#previous-button').click(function(){
+            showNextImage(images.length - 1);
+            clearInterval(intervalId);
+            intervalId = setInterval(showNextImage, delay);
+        });
+    });
+</script>
+
+</html>

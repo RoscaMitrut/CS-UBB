@@ -1,0 +1,23 @@
+#nume, #prenume {
+	background-image: url('square.gif');
+	width: 415px;
+    height: 18px;
+	background-repeat: repeat;
+    font-family: monospace;
+
+    background-size: 23px;
+    font-size: 13px;
+    letter-spacing: 16px;
+}
+
+#cnp {
+	background-image: url('square.gif');
+    width: 269px;
+    height: 18px;
+	background-repeat: repeat;
+    font-family: monospace;
+
+    background-size: 20px;
+    font-size: 13px;
+    letter-spacing: 13.6px;
+}
