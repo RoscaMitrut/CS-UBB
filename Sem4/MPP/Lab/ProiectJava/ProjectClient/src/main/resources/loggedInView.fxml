@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="400.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/" xmlns:fx="http://javafx.com/fxml/" fx:controller="project.client.gui.LoggedInController">
+   <children>
+      <TableView fx:id="excursiiView" onMouseClicked="#clickItemExcursii" prefHeight="213.0" prefWidth="547.0">
+        <columns>
+          <TableColumn fx:id="excursiiObiectivColoana" prefWidth="75.0" text="Obiectiv" />
+            <TableColumn fx:id="excursiiFirmaTransportColoana" prefWidth="108.0" text="Firma Transport" />
+            <TableColumn fx:id="excursiiPlecareColoana" prefWidth="181.0" text="Plecare" />
+            <TableColumn fx:id="excursiiPretColoana" minWidth="0.0" prefWidth="56.0" text="Pret" />
+            <TableColumn fx:id="excursiiLocuriDisponibileColoana" prefWidth="126.0" text="Locuri Disponibile" />
+        </columns>
+      </TableView>
+      <TextField fx:id="obiectivCautareField" layoutX="637.0" layoutY="14.0" />
+      <TextField fx:id="oraMinCautareField" layoutX="637.0" layoutY="97.0" />
+      <DatePicker fx:id="dataCautareDatePicker" layoutX="612.0" layoutY="56.0" />
+      <Button fx:id="cautareButon" layoutX="671.0" layoutY="175.0" mnemonicParsing="false" onAction="#handleCauta" text="Cautare" />
+      <TextField fx:id="oraMaxCautareField" layoutX="637.0" layoutY="135.0" />
+      <TableView fx:id="cautareView" layoutY="213.0" onMouseClicked="#clickItemCauta" prefHeight="200.0" prefWidth="547.0">
+        <columns>
+          <TableColumn fx:id="cautareFirmaTransportColoana" prefWidth="115.0" text="Firma Transport" />
+          <TableColumn fx:id="cautarePlecareColoana" prefWidth="210.0" text="Plecare" />
+            <TableColumn fx:id="cautarePretColoana" minWidth="0.0" prefWidth="105.0" text="Pret" />
+            <TableColumn fx:id="cautareLocuriDisponibileColoana" prefWidth="116.0" text="Locuri Disponibile" />
+        </columns>
+      </TableView>
+      <TextField fx:id="numeClientRezervareField" layoutX="637.0" layoutY="250.0" />
+      <TextField fx:id="numarTelefonRezervareField" layoutX="637.0" layoutY="293.0" />
+      <TextField fx:id="numarLocuriRezervareField" layoutX="637.0" layoutY="330.0" />
+      <Text layoutX="590.0" layoutY="267.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nume" />
+      <Text layoutX="551.0" layoutY="310.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Numar Telefon" />
+      <Text layoutX="554.0" layoutY="347.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Numar Locuri" />
+      <Text layoutX="590.0" layoutY="31.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Obiectiv" />
+      <Text layoutX="590.0" layoutY="114.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ora Min" />
+      <Text layoutX="590.0" layoutY="152.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ora Max" />
+      <Button fx:id="refreshButon" layoutX="645.0" layoutY="387.0" mnemonicParsing="false" onAction="#handleRefresh" text="Refresh" />
+   </children>
+</AnchorPane>

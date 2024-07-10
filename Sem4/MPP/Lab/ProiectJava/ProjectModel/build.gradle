@@ -1,0 +1,25 @@
+plugins {
+    id 'java'
+}
+
+group 'ProiectJava'
+version '1.0'
+
+
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation project (':Utils')
+    testImplementation group: 'junit', name: 'junit', version: '4.12'
+
+
+
+    implementation 'org.hibernate.orm:hibernate-core:6.4.4.Final'
+    implementation 'org.hibernate.validator:hibernate-validator:8.0.0.Final'
+    implementation 'org.glassfish:jakarta.el:4.0.2'
+    implementation 'org.hibernate.orm:hibernate-community-dialects:6.4.4.Final'
+    runtimeOnly 'org.xerial:sqlite-jdbc:3.45.3.0'
+}

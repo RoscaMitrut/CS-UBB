@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="GradleMigrationSettings" migrationVersion="1" />
+  <component name="GradleSettings">
+    <option name="linkedExternalProjectsSettings">
+      <GradleProjectSettings>
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/ProjectClient" />
+            <option value="$PROJECT_DIR$/ProjectModel" />
+            <option value="$PROJECT_DIR$/ProjectNetworking" />
+            <option value="$PROJECT_DIR$/ProjectPersistence" />
+            <option value="$PROJECT_DIR$/ProjectRest" />
+            <option value="$PROJECT_DIR$/ProjectServer" />
+            <option value="$PROJECT_DIR$/ProjectServices" />
+            <option value="$PROJECT_DIR$/Utils" />
+          </set>
+        </option>
+      </GradleProjectSettings>
+    </option>
+  </component>
+</project>

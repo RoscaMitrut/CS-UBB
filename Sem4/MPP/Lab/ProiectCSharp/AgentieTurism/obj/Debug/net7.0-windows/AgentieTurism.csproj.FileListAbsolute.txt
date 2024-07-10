@@ -1,0 +1,8 @@
+C:\Users\RoscaMitrut\Desktop\SEM4\MPP\Labs\ProiectCSharp\AgentieTurism\obj\Debug\net7.0-windows\AgentieTurism.csproj.AssemblyReference.cache
+C:\Users\RoscaMitrut\Desktop\SEM4\MPP\Labs\ProiectCSharp\AgentieTurism\obj\Debug\net7.0-windows\AgentieTurism.Login.resources
+C:\Users\RoscaMitrut\Desktop\SEM4\MPP\Labs\ProiectCSharp\AgentieTurism\obj\Debug\net7.0-windows\AgentieTurism.MainWindow.resources
+C:\Users\RoscaMitrut\Desktop\SEM4\MPP\Labs\ProiectCSharp\AgentieTurism\obj\Debug\net7.0-windows\AgentieTurism.csproj.GenerateResource.cache
+C:\Users\RoscaMitrut\Desktop\SEM4\MPP\Labs\ProiectCSharp\AgentieTurism\obj\Debug\net7.0-windows\AgentieTurism.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\RoscaMitrut\Desktop\SEM4\MPP\Labs\ProiectCSharp\AgentieTurism\obj\Debug\net7.0-windows\AgentieTurism.AssemblyInfoInputs.cache
+C:\Users\RoscaMitrut\Desktop\SEM4\MPP\Labs\ProiectCSharp\AgentieTurism\obj\Debug\net7.0-windows\AgentieTurism.AssemblyInfo.cs
+C:\Users\RoscaMitrut\Desktop\SEM4\MPP\Labs\ProiectCSharp\AgentieTurism\obj\Debug\net7.0-windows\AgentieTurism.csproj.CoreCompileInputs.cache

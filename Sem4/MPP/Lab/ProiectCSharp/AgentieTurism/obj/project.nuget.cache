@@ -1,0 +1,13 @@
+{
+  "version": 2,
+  "dgSpecHash": "xOPe9mYQqjt9RI7ZHoqhP9f6wqTAS2pTlB03iy+C9Qocl3T1t/C7NIizdY6ZSCXoYhsOsJy5GGQStvt4R/Y7bw==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\RoscaMitrut\\Desktop\\SEM4\\MPP\\Labs\\ProiectCSharp\\AgentieTurism\\AgentieTurism.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\RoscaMitrut\\.nuget\\packages\\log4net\\2.0.17\\log4net.2.0.17.nupkg.sha512",
+    "C:\\Users\\RoscaMitrut\\.nuget\\packages\\system.configuration.configurationmanager\\8.0.0\\system.configuration.configurationmanager.8.0.0.nupkg.sha512",
+    "C:\\Users\\RoscaMitrut\\.nuget\\packages\\system.diagnostics.eventlog\\8.0.0\\system.diagnostics.eventlog.8.0.0.nupkg.sha512",
+    "C:\\Users\\RoscaMitrut\\.nuget\\packages\\system.security.cryptography.protecteddata\\8.0.0\\system.security.cryptography.protecteddata.8.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}

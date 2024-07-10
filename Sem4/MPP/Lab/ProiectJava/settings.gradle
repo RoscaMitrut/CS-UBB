@@ -1,0 +1,10 @@
+rootProject.name = 'ProiectJava'
+include 'ProjectClient'
+include 'ProjectServer'
+include 'ProjectModel'
+include 'ProjectNetworking'
+include 'ProjectServices'
+include 'ProjectPersistence'
+include 'Utils'
+include 'ProjectRest'
+

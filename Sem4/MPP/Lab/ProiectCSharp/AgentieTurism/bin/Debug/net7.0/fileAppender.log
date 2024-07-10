@@ -1,0 +1,9 @@
+INFO 1 UserDBRepository - Creating UserDBRepository
+INFO 1 ExcursieDBRepository - Creating ExcursieDBRepository
+INFO 1 BiletDBRepository - Creating BiletDBRepository
+INFO 1 UserDBRepository - enter user findall
+INFO 1 UserDBRepository - exit user findall
+INFO 1 ExcursieDBRepository - enter excursie findall
+INFO 1 ExcursieDBRepository - exit excursie findall
+INFO 1 BiletDBRepository - enter bilet findall
+INFO 1 BiletDBRepository - exit bilet findall
