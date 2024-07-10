@@ -1,0 +1,121 @@
+     1                                  bits 32
+     2                                  global start        
+     3                                  
+     4                                  
+     5                                  ;Să se scrie un program în limbaj de asamblare care:
+     6                                  
+     7                                  ; citește de la tastatură numele unui fișier text;
+     8                                  ; citește toate cuvintele din fișierul dat;
+     9                                  ; afișează pe ecran doar acele cuvinte care se află pe poziții PARE în fișier și care conțin cel puțin o literă mare.
+    10                                  ; Primul cuvânt din fișier se află pe poziția 0.
+    11                                  ; Fișierul text trebuie să existe și va conține doar cuvinte separate prin spații.
+    12                                  
+    13                                  
+    14                                  ; Exemplu:
+    15                                  
+    16                                  ; Dacă fișierul conține:
+    17                                  
+    18                                  ; anA caMeLia victor tUdOr aLiNa DiAnA paul RoBErT IuLIa aNdA
+    19                                  
+    20                                  ; se va afișa pe ecran:
+    21                                  
+    22                                  ; anA aLiNa IuLIa
+    23                                  
+    24                                  extern exit,fopen,fclose,printf,gets,fgets
+    25                                  import fgets msvcrt.dll
+    26                                  import exit msvcrt.dll   
+    27                                  import gets msvcrt.dll
+    28                                  import fopen msvcrt.dll
+    29                                  import fclose msvcrt.dll
+    30                                  import printf msvcrt.dll
+    31                                  
+    32                                  segment data use32 class=data
+    33 00000000 00<rept>                    sir times 100 db 0
+    34 00000064 00<rept>                    nume_fisier times 20 db 0
+    35 00000078 00000000                    descriptor_fisier dd 0
+    36 0000007C 7200                        mod_deschidere db "r",0
+    37 0000007E 4E756D652066697369-         mesaj db "Nume fisier: ",0
+    37 00000087 65723A2000         
+    38 0000008C 00<rept>                    nume times 20 db 0
+    39                                  segment code use32 class=code
+    40                                      start:
+    41                                      ;afisam mesaj pentru input
+    42 00000000 68[7E000000]                    push mesaj
+    43 00000005 FF15[00000000]                  call [printf]
+    44 0000000B 83C404                          add esp,1*4
+    45                                      ;luam de la user numele fisierului
+    46 0000000E 68[64000000]                    push nume_fisier
+    47 00000013 FF15[00000000]                  call [gets]
+    48 00000019 83C404                          add esp,1*4
+    49                                      ;deschidem fisierul si iesim din program daca nu se deschide
+    50 0000001C 68[7C000000]                    push mod_deschidere
+    51 00000021 68[64000000]                    push nume_fisier
+    52 00000026 FF15[00000000]                  call [fopen]
+    53 0000002C 83C408                          add esp,2*4
+    54 0000002F A3[78000000]                    mov [descriptor_fisier],eax
+    55 00000034 83F800                          cmp eax,0
+    56 00000037 7476                            je eroare
+    57                                      ;salvam in memorie sirul din fisier
+    58 00000039 FF35[78000000]                  push dword[descriptor_fisier]
+    59 0000003F 6A5A                            push dword 90
+    60 00000041 68[00000000]                    push sir
+    61 00000046 FF15[00000000]                  call [fgets]
+    62 0000004C 83C40C                          add esp,3*4   
+    63                                      ;inchidem fisierul
+    64 0000004F FF35[78000000]                  push dword [descriptor_fisier]
+    65 00000055 FF15[00000000]                  call [fclose]
+    66 0000005B 83C404                          add esp,1*4
+    67                                      ;luam ebx 0 si daca se transforma in 1 pana la sfarsitul unui cuvant inseamna ca acesta contine o majuscula
+    68                                      ;luam edx 0 si o incrementam pe parcurs. edx reprezinta pozitia din fisier la care ne aflam
+    69                                      
+    70 0000005E BB00000000                      mov ebx,0
+    71 00000063 BA00000000                      mov edx,0
+    72 00000068 BE[00000000]                    mov esi,sir
+    73                                          
+    74                                      cuvant_nou:
+    75                                      ;cuvintele noi le salvam in "nume"
+    76 0000006D BF[8C000000]                mov edi,nume
+    77                                      
+    78                                      cuvant:
+    79                                          ;luam fiecare cuvant litera cu litera si verificam daca are majuscula
+    80 00000072 AC                              lodsb
+    81                                          
+    82 00000073 8807                            mov [edi],al
+    83 00000075 47                              inc edi
+    84                                          
+    85 00000076 83F800                          cmp eax,0
+    86 00000079 7434                            je iesire
+    87                                          
+    88 0000007B 83F820                          cmp eax,' '
+    89 0000007E 740C                            je gata_cuvant
+    90                                          
+    91 00000080 83F85A                          cmp eax,"Z"
+    92 00000083 7705                            ja fara_litera_mare
+    93 00000085 BB01000000                      mov ebx,1
+    94                                          
+    95                                          fara_litera_mare:
+    96 0000008A EBE6                            jmp cuvant
+    97                                      
+    98                                      gata_cuvant:
+    99                                      ;ebx = 0  => nu avem majuscula
+   100 0000008C 83FB00                          cmp ebx,0
+   101 0000008F 7416                            je nu_e_bun
+   102                                          
+   103                                      ;ultima cifra din edx => pozitie para/impara
+   104 00000091 83E201                          and edx,1
+   105 00000094 83FA01                          cmp edx,1
+   106 00000097 740E                            je nu_e_bun
+   107                                       ;printam numele daca e ok
+   108 00000099 68[8C000000]                    push nume
+   109 0000009E FF15[00000000]                  call [printf]
+   110 000000A4 83C404                          add esp,1*4
+   111                                          
+   112                                          nu_e_bun:
+   113                                       ;reinitializam ebx si incrementam edx
+   114 000000A7 BB00000000                      mov ebx,0
+   115 000000AC 42                              inc edx
+   116 000000AD EBBE                            jmp cuvant_nou
+   117                                          iesire:
+   118                                          eroare:
+   119 000000AF 6A00                            push    dword 0      
+   120 000000B1 FF15[00000000]                  call    [exit]       

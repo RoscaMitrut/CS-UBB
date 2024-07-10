@@ -1,0 +1,5 @@
+1,bormasina,10000,612.21,2
+2,ciocan,9,21.12,3
+3,fierastrau,1,74.86,5
+4,calculator,1,2721.28,7
+5,monitor,2,539.23,3

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="600.0" prefWidth="644.0" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="com.proj.controller.AdminController">
+    <TableView fx:id="tableViewProduse" onMouseClicked="#handleClickProdus" prefHeight="300.0" prefWidth="400.0">
+        <columns>
+            <TableColumn fx:id="idProdusColoana" prefWidth="75.0" text="id" />
+            <TableColumn fx:id="numeProdusColoana" prefWidth="75.0" text="numeProdus" />
+            <TableColumn fx:id="cantitateProdusColoana" prefWidth="75.0" text="cantitate" />
+            <TableColumn fx:id="pretBucataProdusColoana" prefWidth="75.0" text="pretBucata" />
+        </columns>
+    </TableView>
+
+    <TableView fx:id="tableViewUseri" layoutY="300.0" onMouseClicked="#handleClickUser" prefHeight="300.0" prefWidth="400.0">
+        <columns>
+            <TableColumn fx:id="idUserColoana" prefWidth="75.0" text="id" />
+            <TableColumn fx:id="usernameUserColoana" prefWidth="75.0" text="username" />
+            <TableColumn fx:id="passwordUserColoana" prefWidth="75.0" text="password" />
+            <TableColumn fx:id="numeUserColoana" prefWidth="75.0" text="nume" />
+        </columns>
+    </TableView>
+    <Button layoutX="425.0" layoutY="184.0" mnemonicParsing="false" onAction="#handleModificaProd" prefHeight="0.0" prefWidth="120.0" text="Modifica Produs" />
+    <Button layoutX="425.0" layoutY="138.0" mnemonicParsing="false" onAction="#handleStergeProd" prefWidth="120.0" text="Sterge Produs" />
+    <TextField fx:id="fieldNumeProd" layoutX="410.0" layoutY="14.0" promptText="numeProdus" />
+    <TextField fx:id="fieldCantitate" layoutX="410.0" layoutY="57.0" promptText="cantitate" />
+    <TextField fx:id="fieldPret" layoutX="410.0" layoutY="96.0" promptText="pretBucata" />
+    <Button layoutX="425.0" layoutY="233.0" mnemonicParsing="false" onAction="#handleAdaugaProd" prefWidth="120.0" text="Adauga Produs" />
+    <TextField fx:id="fieldPassword" layoutX="410.0" layoutY="369.0" promptText="password" />
+    <TextField fx:id="fieldNumeUser" layoutX="410.0" layoutY="411.0" promptText="nume" />
+    <Button layoutX="426.0" layoutY="456.0" mnemonicParsing="false" onAction="#handleStergeUser" prefWidth="120.0" text="Sterge User" />
+    <Button layoutX="426.0" layoutY="496.0" mnemonicParsing="false" onAction="#handleModificaUser" prefWidth="120.0" text="Modifica User" />
+   <TextField fx:id="fieldUsername" layoutX="411.0" layoutY="320.0" promptText="username" />
+   <Button layoutX="425.0" layoutY="539.0" mnemonicParsing="false" onAction="#handleAdaugaUser" prefWidth="120.0" text="Adauga User" />
+
+   <TableView fx:id="tableViewStats" layoutX="571.0" prefHeight="600.0" prefWidth="76.0">
+     <columns>
+       <TableColumn fx:id="valoareStatColoana" prefWidth="75.0" text="valoare" />
+     </columns>
+   </TableView>
+
+</AnchorPane>

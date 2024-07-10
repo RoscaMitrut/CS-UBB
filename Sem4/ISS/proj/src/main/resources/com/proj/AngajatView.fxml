@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="450.0" prefWidth="400.0" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="com.proj.controller.AngajatController">
+   <TableView fx:id="produseView" onMouseClicked="#handleComandaProdus" prefHeight="400.0" prefWidth="400.0">
+      <columns>
+         <TableColumn fx:id="numeprodusColoana" prefWidth="150.0" text="NumeProdus" />
+         <TableColumn fx:id="pretColoana" minWidth="0.0" prefWidth="70.0" text="Pret" />
+         <TableColumn fx:id="stocColoana" prefWidth="85.0" text="Stoc" />
+      </columns>
+   </TableView>
+   <TextField fx:id="textComanda" layoutX="126.0" layoutY="414.0" />
+</AnchorPane>

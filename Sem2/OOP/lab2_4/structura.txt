@@ -1,0 +1,24 @@
+domeniu
+	-participant.h
+		    .c	
+		|==>struct participant
+
+lista
+	-mylist.h
+	       .c
+	    |==>struct mylist
+
+service
+	-service.h
+		.c
+
+main/ui
+
+pt sapt4:
+
+struct cu alocari dinamice		
+
+
+-99%coverage
+-no leaks
+-

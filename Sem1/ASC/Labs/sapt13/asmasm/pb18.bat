@@ -1,0 +1,1 @@
+C:\ASC\_TEME\temasapt13\asmasm/pb18.exe & echo. & pause

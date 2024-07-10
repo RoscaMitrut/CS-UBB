@@ -1,9 +1,0 @@
-1;Mihai;103
-553;Dumitru;106
-793;Ion;696
-356;Claudiu;303
-401;Vasile;854
-851;Claudiu;803
-966;Claudiu;665
-981;Mihai;600
-696;Claudiu;832
