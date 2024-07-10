@@ -1,0 +1,51 @@
+syntax="proto3";
+package project.protocol;
+
+option java_package = "project.network.protobuffprotocol";
+option java_outer_classname = "ProjectProtobufs";
+
+message User{
+	string id=1;
+	string username=2;
+	string password=3;
+}
+
+message Excursie{
+	string obiectivVizitat=1;
+	string oraPlecare=2;
+	string firmaTransport=3;
+	string pret=4;
+	string locuriDisponibile=5;
+	string id=6;
+}
+
+message Bilet{
+	string numarPersoane=1;
+	string numeClient=2;
+	string numarTelefonClient=3;
+	string idExcursie=4;
+	string id =5;
+}
+
+message ProjectRequest{
+	enum Type{LOGIN=0;LOGOUT=1;GET_TRIPS=2;GET_FILTERED_TRIPS=3;BUY_TICKET=4;}
+
+	Type type =1;
+
+	User user=2;
+	Bilet bilet=3;
+	Excursie excursie=4;
+	string oramin=5;
+	string oramax=6;
+}
+
+message ProjectResponse{
+	enum Type{OK=0;ERROR=1;TRIPS=2;FILTERED_TRIPS=3;BOUGHT_TICKET=4;}
+
+	Type type=1;
+
+	string errorMessage=2;
+	User user=3;
+	repeated Excursie excursii=4;
+	Bilet bilet=5;
+}

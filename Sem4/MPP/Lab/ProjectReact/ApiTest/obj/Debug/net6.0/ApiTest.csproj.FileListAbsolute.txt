@@ -1,0 +1,17 @@
+C:\Users\RoscaMitrut\Desktop\SEM4\MPP\Labs\ProjectReact\ApiTest\bin\Debug\net6.0\ApiTest.exe
+C:\Users\RoscaMitrut\Desktop\SEM4\MPP\Labs\ProjectReact\ApiTest\bin\Debug\net6.0\ApiTest.deps.json
+C:\Users\RoscaMitrut\Desktop\SEM4\MPP\Labs\ProjectReact\ApiTest\bin\Debug\net6.0\ApiTest.runtimeconfig.json
+C:\Users\RoscaMitrut\Desktop\SEM4\MPP\Labs\ProjectReact\ApiTest\bin\Debug\net6.0\ApiTest.dll
+C:\Users\RoscaMitrut\Desktop\SEM4\MPP\Labs\ProjectReact\ApiTest\bin\Debug\net6.0\ApiTest.pdb
+C:\Users\RoscaMitrut\Desktop\SEM4\MPP\Labs\ProjectReact\ApiTest\bin\Debug\net6.0\Newtonsoft.Json.dll
+C:\Users\RoscaMitrut\Desktop\SEM4\MPP\Labs\ProjectReact\ApiTest\obj\Debug\net6.0\ApiTest.csproj.AssemblyReference.cache
+C:\Users\RoscaMitrut\Desktop\SEM4\MPP\Labs\ProjectReact\ApiTest\obj\Debug\net6.0\ApiTest.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\RoscaMitrut\Desktop\SEM4\MPP\Labs\ProjectReact\ApiTest\obj\Debug\net6.0\ApiTest.AssemblyInfoInputs.cache
+C:\Users\RoscaMitrut\Desktop\SEM4\MPP\Labs\ProjectReact\ApiTest\obj\Debug\net6.0\ApiTest.AssemblyInfo.cs
+C:\Users\RoscaMitrut\Desktop\SEM4\MPP\Labs\ProjectReact\ApiTest\obj\Debug\net6.0\ApiTest.csproj.CoreCompileInputs.cache
+C:\Users\RoscaMitrut\Desktop\SEM4\MPP\Labs\ProjectReact\ApiTest\obj\Debug\net6.0\ApiTest.csproj.CopyComplete
+C:\Users\RoscaMitrut\Desktop\SEM4\MPP\Labs\ProjectReact\ApiTest\obj\Debug\net6.0\ApiTest.dll
+C:\Users\RoscaMitrut\Desktop\SEM4\MPP\Labs\ProjectReact\ApiTest\obj\Debug\net6.0\refint\ApiTest.dll
+C:\Users\RoscaMitrut\Desktop\SEM4\MPP\Labs\ProjectReact\ApiTest\obj\Debug\net6.0\ApiTest.pdb
+C:\Users\RoscaMitrut\Desktop\SEM4\MPP\Labs\ProjectReact\ApiTest\obj\Debug\net6.0\ApiTest.genruntimeconfig.cache
+C:\Users\RoscaMitrut\Desktop\SEM4\MPP\Labs\ProjectReact\ApiTest\obj\Debug\net6.0\ref\ApiTest.dll
