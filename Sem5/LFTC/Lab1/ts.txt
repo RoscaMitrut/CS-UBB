@@ -1,0 +1,10 @@
+0 : raza 
+1 : detest 
+2 : 2 
+3 : aria 
+4 : cerc 
+5 : None 
+6 : None 
+7 : SirDeCaractere 
+8 : 3.14 
+9 : perimetru 

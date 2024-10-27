@@ -1,0 +1,69 @@
+program 16
+cerc 0 | 4
+; 11
+uses 18
+crt 14
+; 11
+var 19
+raza 0 | 0
+: 41
+real 4
+; 11
+perimetru 0 | 9
+: 41
+real 4
+; 11
+aria 0 | 3
+: 41
+real 4
+; 11
+detest 0 | 1
+: 41
+string 5
+; 11
+begin 12
+clrscr 13
+; 11
+readln 17
+( 6
+raza 0 | 0
+) 7
+detest 0 | 1
+:= 42
+'SirDeCaractere' 1 | 7
+; 11
+writeln 20
+( 6
+detest 0 | 1
+) 7
+; 11
+perimetru 0 | 9
+:= 42
+2 1 | 2
+* 8
+3.14 1 | 8
+* 8
+raza 0 | 0
+; 11
+aria 0 | 3
+:= 42
+3.14 1 | 8
+* 8
+raza 0 | 0
+* 8
+raza 0 | 0
+; 11
+writeln 20
+( 6
+perimetru 0 | 9
+) 7
+; 11
+writeln 20
+( 6
+aria 0 | 3
+) 7
+; 11
+end. 15
+The word '$' is neither a keyword, variable, nor a constant. Line 4
+The word ';$' is neither a keyword, variable, nor a constant. Line 6
+The word '$' is neither a keyword, variable, nor a constant. Line 8
