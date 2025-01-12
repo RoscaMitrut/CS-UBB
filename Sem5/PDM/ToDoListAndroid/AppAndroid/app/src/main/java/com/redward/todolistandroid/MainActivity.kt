@@ -1,5 +1,6 @@
 package com.redward.todolistandroid
 
+import android.app.Application
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -21,6 +22,8 @@ import java.util.concurrent.TimeUnit
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ExitToApp
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.platform.LocalContext
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -45,6 +48,15 @@ fun MainScreen(viewModel: TaskViewModel, myJobsViewModel: MyJobsViewModel) {
     val tasks by viewModel.tasks.observeAsState(emptyList())
     var errorMessage by remember { mutableStateOf("") }
     val navController = rememberNavController()
+
+    val sensorViewModel: SensorViewModel = viewModel(factory = SensorViewModel.Factory(LocalContext.current.applicationContext as Application))
+    val tilt by sensorViewModel.tilt.observeAsState()
+    val iconResId = when {
+        tilt == null -> R.drawable.ic_default
+        tilt!![0] > 2 -> R.drawable.ic_tilt_right
+        tilt!![0] < -2 -> R.drawable.ic_tilt_left
+        else -> R.drawable.ic_default
+    }
 
     LaunchedEffect(viewModel.token) {
         isLoggedIn = viewModel.token != null
@@ -73,6 +85,11 @@ fun MainScreen(viewModel: TaskViewModel, myJobsViewModel: MyJobsViewModel) {
                         )
                     }
                     MyNotifications()
+                    Icon(
+                        painter = painterResource(id = iconResId),
+                        contentDescription = "Tilt Icon",
+                        modifier = Modifier.size(32.dp)
+                    )
                 }
                 //MyJobs(myJobsViewModel)
                 TaskApp(tasks, viewModel)
