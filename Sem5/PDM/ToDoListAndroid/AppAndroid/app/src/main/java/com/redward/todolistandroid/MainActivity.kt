@@ -53,8 +53,8 @@ fun MainScreen(viewModel: TaskViewModel, myJobsViewModel: MyJobsViewModel) {
     val tilt by sensorViewModel.tilt.observeAsState()
     val iconResId = when {
         tilt == null -> R.drawable.ic_default
-        tilt!![0] > 2 -> R.drawable.ic_tilt_right
-        tilt!![0] < -2 -> R.drawable.ic_tilt_left
+        tilt!![0] > 2 -> R.drawable.ic_tilt_left
+        tilt!![0] < -2 -> R.drawable.ic_tilt_right
         else -> R.drawable.ic_default
     }
 

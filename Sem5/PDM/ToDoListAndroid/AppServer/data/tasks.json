@@ -2,43 +2,41 @@
     {
         "id": "1",
         "ownerId": "user1",
-        "title": "Buy groceries1344656",
+        "title": "Buy groceries",
         "date": "2024-12-06",
-        "isDone": true
+        "isDone": false,
+        "imageUrl": null
     },
     {
         "id": "2",
         "ownerId": "user1",
         "title": "Call mom",
         "date": "2024-12-06",
-        "isDone": false
+        "isDone": false,
+        "imageUrl": null
     },
     {
         "id": "3",
         "ownerId": "user2",
-        "title": "Finish project!",
+        "title": "Finish project",
         "date": "2024-12-07",
-        "isDone": false
+        "isDone": false,
+        "imageUrl": null
     },
     {
         "id": "4",
         "ownerId": "user1",
         "title": "asdf",
-        "date": "2024-11-11",
-        "isDone": false
+        "date": "2024-12-12",
+        "isDone": false,
+        "imageUrl": "http://10.131.8.157:5000/uploads/e16f3269-7a6d-4572-86ae-17318b38f51a.jpg"
     },
     {
         "id": "5",
         "ownerId": "user1",
-        "title": "qwedsaqwedxsa",
-        "date": "2024-11-13",
-        "isDone": true
-    },
-    {
-        "id": "6",
-        "ownerId": "user1",
-        "title": "asdf1",
-        "date": "2024-11-11",
-        "isDone": false
+        "title": "asdfasdf",
+        "date": "23454423",
+        "isDone": false,
+        "imageUrl": "http://10.131.8.157:5000/uploads/49ce4259-84fe-4d2d-97be-4fee95228a9d.jpg"
     }
 ]

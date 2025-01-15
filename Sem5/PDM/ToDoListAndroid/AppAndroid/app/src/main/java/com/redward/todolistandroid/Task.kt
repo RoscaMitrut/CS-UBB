@@ -5,5 +5,6 @@ data class Task(
     val ownerId: String,
     val title: String,
     val date: String,
-    val isDone: Boolean
+    val isDone: Boolean,
+    val imageUrl: String? = null
 )

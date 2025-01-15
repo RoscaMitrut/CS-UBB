@@ -1,5 +1,7 @@
 package com.redward.todolistandroid
 
+import android.util.Log
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
@@ -15,7 +17,11 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Check
 import androidx.compose.material.Card
 import androidx.compose.material.icons.filled.Add
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
+import coil.compose.AsyncImagePainter
+import coil.compose.rememberAsyncImagePainter
 
 @Composable
 fun TaskListScreen(tasks: List<Task>, onTaskClick: (Task) -> Unit, onAddTaskClick: () -> Unit) {
@@ -53,6 +59,29 @@ fun TaskItem(task: Task, onClick: () -> Unit) {
             Column {
                 Text(text = task.title, style = MaterialTheme.typography.h6)
                 Text(text = "Due: ${task.date}", style = MaterialTheme.typography.body2)
+                task.imageUrl?.let { imageUrl ->
+                    Log.d("TaskListScreen", "Loading task image: $imageUrl")
+
+                    val painter = rememberAsyncImagePainter(model = imageUrl)
+                    val isLoading = painter.state is AsyncImagePainter.State.Loading
+
+                    Box {
+                        Image(
+                            painter = painter,
+                            contentDescription = "Task Image",
+                            modifier = Modifier
+                                .size(100.dp)
+                                .padding(4.dp)
+                        )
+                        if (isLoading) {
+                            CircularProgressIndicator(
+                                modifier = Modifier
+                                    .align(Alignment.Center)
+                                    .size(24.dp) // Adjusted size for better fit
+                            )
+                        }
+                    }
+                }
             }
             if (task.isDone) {
                 Icon(

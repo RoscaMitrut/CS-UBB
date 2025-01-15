@@ -14,6 +14,7 @@ import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch
+import java.io.File
 
 
 class TaskViewModel(application: Application) : AndroidViewModel(application) {
@@ -163,5 +164,20 @@ class TaskViewModel(application: Application) : AndroidViewModel(application) {
                 }
             })
         }
+    }
+
+    fun uploadTaskImage(file: File, onSuccess: (String) -> Unit, onError: (String) -> Unit) {
+        Log.d("TaskViewModel", "Starting task image upload")
+        CameraUtils.uploadImage(
+            file = file,
+            onSuccess = { imageUrl ->
+                Log.d("TaskViewModel", "Task image upload successful: $imageUrl")
+                onSuccess(imageUrl)
+            },
+            onError = { error ->
+                Log.e("TaskViewModel", "Task image upload failed: $error")
+                onError(error)
+            }
+        )
     }
 }
