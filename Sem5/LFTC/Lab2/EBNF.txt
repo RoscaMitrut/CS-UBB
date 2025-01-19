@@ -1,0 +1,15 @@
+file = alphabet NL states NL initial_states NL final_states NL transitions
+
+alphabet = '0' | '1' | '2' | '3' | '4' | '5' | '6' | '7' | '8' | '9' | 'x' | 'X' | 'b' | 'B' | a | A | b | B | c | C | d | D | e | E | f | F
+
+states = 'q0' | 'q1' | 'q2' | 'q3' | 'q4' | 'q5' | 'q6' | 'q7' | 'q8' | 'q9'
+
+initial_states = 'q0'
+
+final_states = states (',' states)*
+
+transitions = transition (NL transition)*
+
+transition = states ',' states ',' alphabet
+
+NL = '\n'
