@@ -25,7 +25,7 @@ TODO:
 - [Probabilitati si Statistica](./Sem3/PS/)
 - [Retele de Calculatoare](./Sem3/RC/)
 ### Sem 2
-- [Inteligenta Artificiala](./Sem4/AI/)
+- [Inteligenta Artificiala](./Sem4/IA/)
 - [Ingineria Sistemelor Soft](./Sem4/ISS/)
 - [Medii de Proiectare si Programare](./Sem4/MPP/)
 - [Programare Web](./Sem4/PW/)
