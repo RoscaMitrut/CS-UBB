@@ -46,7 +46,7 @@ setInterval(() => {
     spaces[index].takenBy = `u${index % 3}`;
   }
   broadcast(spaces[index]);
-}, 10000);
+}, 3000);
 
 const router = new Router();
 router.get('/space', ctx => {
