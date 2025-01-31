@@ -1,0 +1,7 @@
+conversia unui graf neorientat neponderat de la o forma de reprezentare la o alta forma de reprezentare
+
+
+1. lista de muchii
+2. matrice de adiacenta
+3. matrice de incidenta
+4. lista de adiacenta (lista vecini)
