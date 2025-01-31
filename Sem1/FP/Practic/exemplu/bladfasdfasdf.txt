@@ -1,0 +1,3 @@
+20.01,23:00,FP,restanta
+20.02,08:00,FP,normal
+21.02,10:00,FP,normal
