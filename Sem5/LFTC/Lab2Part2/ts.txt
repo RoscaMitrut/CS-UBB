@@ -1,0 +1,14 @@
+0 : None 
+1 : ra 
+2 : 3.14 
+3 : None 
+4 : None 
+5 : detest 
+6 : SirDeCaractere 
+7 : cerc 
+8 : aria 
+9 : perimetru 
+10 : raza 
+11 : asdf 
+12 : za 
+13 : 2 

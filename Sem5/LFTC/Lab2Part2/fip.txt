@@ -1,0 +1,79 @@
+program 16
+cerc 0 | 7
+; 11
+uses 18
+crt 14
+; 11
+var 19
+raza 0 | 10
+: 41
+real 4
+; 11
+perimetru 0 | 9
+: 41
+real 4
+; 11
+aria 0 | 8
+: 41
+real 4
+; 11
+detest 0 | 5
+: 41
+string 5
+; 11
+begin 12
+clrscr 13
+; 11
+readln 17
+( 6
+raza 0 | 10
+) 7
+; 11
+detest 0 | 5
+: 41
+= 32
+' 31
+SirDeCaractere 0 | 6
+' 31
+; 11
+writeln 20
+( 6
+detest 0 | 5
+) 7
+; 11
+perimetru 0 | 9
+: 41
+= 32
+2 1 | 13
+* 8
+3.14 1 | 2
+asdf 0 | 11
+* 8
+ra 0 | 1
+za 0 | 12
+; 11
+aria 0 | 8
+: 41
+= 32
+3.14 1 | 2
+* 8
+raza 0 | 10
+* 8
+raza 0 | 10
+; 11
+writeln 20
+( 6
+perimetru 0 | 9
+) 7
+; 11
+writeln 20
+( 6
+aria 0 | 8
+) 7
+; 11
+end. 15
+Unexpected character '$' at index 84, Line 4
+Unexpected character '$' at index 100, Line 6
+Unexpected character '$' at index 174, Line 9
+Unexpected character '$' at index 177, Line 9
+Unexpected character '$' at index 211, Line 11
