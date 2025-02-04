@@ -1,0 +1,90 @@
+%token COMMA INTEGER REAL STRING LPAREN RPAREN MUL INC DEC SEMICOLON
+%token BEGINNING CLRSCR CRT ENDPROG PROG READLN USES VAR WRITELN
+%token IF THEN ELSE WHILE DO DIV PLUS MINUS NEQ GT STR EQ
+%token TYPE RECORD END DOT COMPINC COMPDEC COMPDIV COMPMOD COLON ASSIGN
+%token REPETA PANACAND CONST IDENTIFIER UNKNOWN
+%%
+program: PROG IDENTIFIER SEMICOLON USES CRT SEMICOLON type_section decl_section BEGINNING CLRSCR SEMICOLON stmt_section ENDPROG
+
+type_section: typedeclaration
+
+typedeclaration: TYPE IDENTIFIER EQ RECORD typefieldlist END SEMICOLON
+
+typefieldlist: IDENTIFIER COLON type SEMICOLON typefieldlist
+typefieldlist: IDENTIFIER COLON type SEMICOLON
+
+decl_section: declarations
+
+declarations: VAR IDENTIFIER COLON type SEMICOLON moredeclarations
+
+moredeclarations: IDENTIFIER COLON type SEMICOLON moredeclarations
+moredeclarations: IDENTIFIER COLON type SEMICOLON
+
+type: INTEGER
+type: REAL
+type: STRING
+
+stmt_section: statements
+
+statements: statement SEMICOLON statements
+statements: statement SEMICOLON
+
+statement: assignment
+statement: ifstatement
+statement: whilestatement
+statement: writestatement
+statement: readstatement
+statement: compoundassignment
+statement: incdec
+statement: repetastatement
+
+assignment: IDENTIFIER ASSIGN expression
+assignment: IDENTIFIER DOT IDENTIFIER ASSIGN expression
+
+repetastatement: REPETA stmt_section PANACAND condition
+
+ifstatement: IF condition THEN BEGINNING statements END
+ifstatement: IF condition THEN BEGINNING statements END ELSE BEGINNING statements END
+
+whilestatement: WHILE condition DO BEGINNING statements END
+
+writestatement: WRITELN LPAREN expression RPAREN
+
+readstatement: READLN LPAREN IDENTIFIER RPAREN
+
+condition: expression reloperator expression
+
+reloperator: NEQ
+reloperator: EQ
+reloperator: GT
+
+expression: IDENTIFIER
+expression: CONST
+expression: IDENTIFIER DOT IDENTIFIER
+expression: IDENTIFIER expression_tail
+expression: CONST expression_tail
+expression: IDENTIFIER DOT IDENTIFIER expression_tail
+
+expression_tail: op expression
+
+op: MINUS
+op: PLUS
+op: DIV
+op: MUL
+
+compoundassignment: IDENTIFIER compoundoperator expression
+compoundassignment: IDENTIFIER DOT IDENTIFIER compoundoperator expression
+
+compoundoperator: COMPINC
+compoundoperator: COMPDEC
+compoundoperator: COMPDIV
+compoundoperator: COMPMOD
+
+incdec: IDENTIFIER incdecopp
+incdec: incdecopp IDENTIFIER
+incdec: IDENTIFIER DOT IDENTIFIER incdecopp
+incdec: incdecopp IDENTIFIER DOT IDENTIFIER
+
+incdecopp: INC
+incdecopp: DEC
+%%
