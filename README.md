@@ -35,3 +35,9 @@
 - [Proiect Colectiv](https://github.com/ProiectColectivUBB)
 - [Calcul Afectiv](https://github.com/mraicu/LLM-Emotion-Negotiations)
 ### Sem2
+- Calcul Numeric
+- Elaborarea Lucrarii de Licenta
+- Gestiunea Proiectelor Soft
+- Istoria Informaticii
+- Modele de Inteligenta Artificiala in Schimbarea Climatica
+- Verificarea si Validarea Sistemelor Soft
