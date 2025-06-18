@@ -35,7 +35,7 @@
 - [Proiect Colectiv](https://github.com/ProiectColectivUBB)
 - [Calcul Afectiv](https://github.com/mraicu/LLM-Emotion-Negotiations)
 ### Sem2
-- Calcul Numeric
+- [Calcul Numeric](./Sem6/CN/)
 - Elaborarea Lucrarii de Licenta
 - Gestiunea Proiectelor Soft
 - Istoria Informaticii
