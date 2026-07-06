@@ -39,5 +39,5 @@
 - Elaborarea Lucrarii de Licenta
 - Gestiunea Proiectelor Soft
 - Istoria Informaticii
-- [Modele de Inteligenta Artificiala in Schimbarea Climatica](https://github.com/RoscaMitrut/Forest-Fire-Detection)
-- [Verificarea si Validarea Sistemelor Soft](https://github.com/RegusAl/VVSS_lab)
+- [Modele de Inteligenta Artificiala in Schimbarea Climatica](./Sem6/MIASC/)
+- [Verificarea si Validarea Sistemelor Soft](./Sem6/VVSS/)
