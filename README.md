@@ -40,4 +40,4 @@
 - Gestiunea Proiectelor Soft
 - Istoria Informaticii
 - [Modele de Inteligenta Artificiala in Schimbarea Climatica](https://github.com/RoscaMitrut/Forest-Fire-Detection)
-- [Verificarea si Validarea Sistemelor Soft](https://github.com/RegusAl/VVSS_lab)
+- [Verificarea si Validarea Sistemelor Soft](https://github.com/RoscaMitrut/VVSS_lab)
